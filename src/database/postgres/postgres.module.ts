@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Marca } from '../../modules/marca/entities/marca.entity';
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             isGlobal: true, // Makes ConfigModule available globally
-            envFilePath: '.env', // Path to your .env file (optional if task.json provides env vars)
         }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
@@ -17,7 +17,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
                 username: configService.get<string>('DB_USERNAME'),
                 password: configService.get<string>('DB_PASSWORD'),
                 database: configService.get<string>('DB_DATABASE'),
-                entities: [__dirname + '/modules/**/entities/*.entity{.ts,.js}'],
+                entities: [Marca],
                 synchronize: true,
             }),
             inject: [ConfigService],
