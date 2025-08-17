@@ -3,10 +3,14 @@ import { CreateMarcaDto } from './dto/create-marca.dto';
 import { UpdateMarcaDto } from './dto/update-marca.dto';
 import { Repository } from 'typeorm';
 import { Marca } from './entities/marca.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class MarcaService {
-  constructor(private readonly marcaRepository: Repository<Marca>) {}
+  constructor(
+    @InjectRepository(Marca)
+    private readonly marcaRepository: Repository<Marca>
+  ) {}
   create(createMarcaDto: CreateMarcaDto) {
     const marca = this.marcaRepository.create(createMarcaDto);
     return this.marcaRepository.save(marca);
