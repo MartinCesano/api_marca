@@ -1,4 +1,4 @@
 export interface IMarca {
-  id: number;
-  denominacion: string;
+    id: number;
+    denominacion: string;
 }

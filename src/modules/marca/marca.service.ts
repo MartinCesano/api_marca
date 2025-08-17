@@ -7,28 +7,28 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class MarcaService {
-  constructor(
-    @InjectRepository(Marca)
-    private readonly marcaRepository: Repository<Marca>
-  ) {}
-  create(createMarcaDto: CreateMarcaDto) {
-    const marca = this.marcaRepository.create(createMarcaDto);
-    return this.marcaRepository.save(marca);
-  }
+    constructor(
+        @InjectRepository(Marca)
+        private readonly marcaRepository: Repository<Marca>
+    ) {}
+    create(createMarcaDto: CreateMarcaDto) {
+        const marca = this.marcaRepository.create(createMarcaDto);
+        return this.marcaRepository.save(marca);
+    }
 
-  findAll() {
-    return this.marcaRepository.find();
-  }
+    findAll() {
+        return this.marcaRepository.find();
+    }
 
-  findOne(id: number) {
-    return this.marcaRepository.findOne({ where: { id } });
-  }
+    findOne(id: number) {
+        return this.marcaRepository.findOne({ where: { id } });
+    }
 
-  update(id: number, updateMarcaDto: UpdateMarcaDto) {
-    return this.marcaRepository.update(id, updateMarcaDto);
-  }
+    update(id: number, updateMarcaDto: UpdateMarcaDto) {
+        return this.marcaRepository.update(id, updateMarcaDto);
+    }
 
-  remove(id: number) {
-    return this.marcaRepository.delete(id);
-  }
+    remove(id: number) {
+        return this.marcaRepository.delete(id);
+    }
 }

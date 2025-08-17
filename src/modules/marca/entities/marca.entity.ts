@@ -3,9 +3,9 @@ import { IMarca } from '../marca.interface';
 
 @Entity()
 export class Marca implements IMarca {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @Column()
-  denominacion: string;
+    @Column()
+    denominacion: string;
 }

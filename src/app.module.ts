@@ -5,8 +5,8 @@ import { MarcaModule } from './modules/marca/marca.module';
 import { PostgresModule } from './database/postgres/postgres.module';
 
 @Module({
-  imports: [MarcaModule, PostgresModule],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [MarcaModule, PostgresModule],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
