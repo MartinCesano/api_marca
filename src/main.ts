@@ -15,7 +15,11 @@ async function bootstrap() {
     si no tiene especificacion permite cualquiera al especificar
     se puede permitir solo de origenes en especifico
      */
-    app.enableCors();
+    app.enableCors(
+        {
+            origin: 'http://localhost:5173 ',
+        }
+    );
 
     /*
     Toma la configuracion de puerto desde el env
